@@ -16,22 +16,22 @@ les liens dans tout le site.
 const CELIANLAB = {
 
     twitch:
-        "#",
+        "https://www.twitch.tv/celian026",
 
     youtube:
-        "#",
+        "https://www.youtube.com/@CelianLab",
 
     tiktok:
-        "#",
+        "https://www.tiktok.com/@celianlab",
 
     instagram:
-        "#",
+        "https://www.instagram.com/celianlab/",
 
     vinted:
-        "#",
+        "https://www.vinted.fr/member/310452502",
 
     cults3d:
-        "#",
+        "https://cults3d.com/en/users/CelianLab/3d-models",
 
     contact:
         "mailto:contact@celianlab.fr"
