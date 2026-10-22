@@ -1,790 +1,1514 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>CELIANLAB — Gaming • Maker • Laser • IA</title>
+    <meta name="description" content="CelianLab — Gaming, création, laser, bricolage, IA et projets maker.">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-<title>CelianLab — Créateur • Maker • Gaming • Laser</title>
+    <style>
+        :root {
+            --black: #050507;
+            --black2: #090a0f;
+            --white: #f5f7ff;
+            --muted: #8d91a3;
+            --line: rgba(255,255,255,.09);
+            --blue: #5b8cff;
+            --cyan: #00d9ff;
+            --purple: #8c5cff;
+            --pink: #d34cff;
+        }
 
-<meta name="description"
-      content="CelianLab — Gaming, Maker, Laser, DIY, IA et création.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="style.css">
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: Inter, sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+
+            background:
+                radial-gradient(circle at 15% 15%, rgba(91,140,255,.10), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(140,92,255,.09), transparent 25%),
+                radial-gradient(circle at 50% 90%, rgba(0,217,255,.06), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+
+            opacity: .16;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+
+            background-size: 70px 70px;
+            mask-image: linear-gradient(to bottom, black, transparent 80%);
+        }
+
+        /* =========================
+           NAV
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 5vw;
+
+            z-index: 100;
+
+            background: rgba(5,5,7,.72);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: .12em;
+        }
+
+        .logo span {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #aaaebe;
+            font-size: 13px;
+            font-weight: 600;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-contact {
+            padding: 11px 18px;
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 100px;
+            background: rgba(255,255,255,.04);
+        }
+
+        .nav-contact:hover {
+            border-color: rgba(91,140,255,.6);
+            background: rgba(91,140,255,.1);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7vw 80px;
+
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 60px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 8px 13px;
+            margin-bottom: 25px;
+
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 100px;
+
+            background: rgba(255,255,255,.035);
+
+            color: #b9bdce;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #58f59c;
+            box-shadow: 0 0 14px #58f59c;
+        }
+
+        h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(58px, 8vw, 120px);
+            line-height: .87;
+            letter-spacing: -.075em;
+            font-weight: 700;
+            max-width: 950px;
+        }
+
+        h1 .gradient {
+            background: linear-gradient(100deg, #fff 10%, #82a9ff 48%, #a16cff 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 580px;
+            margin-top: 30px;
+
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 15px 22px;
+            border-radius: 12px;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            transition: .3s;
+        }
+
+        .btn-primary {
+            color: white;
+
+            background: linear-gradient(100deg, var(--blue), var(--purple));
+
+            box-shadow:
+                0 12px 35px rgba(91,140,255,.18);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 18px 45px rgba(91,140,255,.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(255,255,255,.035);
+            color: #d8dae5;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,.25);
+        }
+
+        /* =========================
+           HERO VISUAL
+        ========================= */
+
+        .hero-visual {
+            min-height: 550px;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .orb {
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(circle at 40% 35%,
+                rgba(255,255,255,.22),
+                rgba(91,140,255,.16) 20%,
+                rgba(140,92,255,.1) 45%,
+                transparent 70%);
+
+            filter: blur(2px);
+
+            animation: pulse 5s ease-in-out infinite;
+        }
+
+        .orb::before,
+        .orb::after {
+            content: "";
+            position: absolute;
+            inset: -55px;
+
+            border-radius: 50%;
+            border: 1px solid rgba(91,140,255,.18);
+        }
+
+        .orb::after {
+            inset: -110px;
+            border-color: rgba(140,92,255,.09);
+        }
+
+        .hero-logo {
+            width: 245px;
+            height: 245px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            z-index: 2;
+
+            background:
+                radial-gradient(circle at 35% 30%, #24283a, #0a0b11 65%);
+
+            border: 1px solid rgba(255,255,255,.14);
+
+            box-shadow:
+                0 0 0 1px rgba(91,140,255,.08),
+                0 0 80px rgba(91,140,255,.2),
+                inset 0 0 50px rgba(140,92,255,.08);
+        }
+
+        .hero-logo-inner {
+            text-align: center;
+        }
+
+        .hero-logo-inner strong {
+            display: block;
+
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 54px;
+            letter-spacing: -.08em;
+
+            background: linear-gradient(135deg, #fff, #76a0ff, #a06cff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-logo-inner span {
+            color: #888da2;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .35em;
+        }
+
+        .floating {
+            position: absolute;
+            padding: 11px 14px;
+
+            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(10,11,16,.78);
+            backdrop-filter: blur(14px);
+
+            border-radius: 10px;
+
+            color: #cdd0dd;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .08em;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,.25);
+        }
+
+        .floating.one {
+            top: 12%;
+            right: 7%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .floating.two {
+            bottom: 17%;
+            left: 3%;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .floating.three {
+            bottom: 7%;
+            right: 12%;
+            animation: float 4.5s ease-in-out infinite;
+        }
+
+        /* =========================
+           MARQUEE
+        ========================= */
+
+        .marquee {
+            overflow: hidden;
+
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+
+            background: rgba(255,255,255,.018);
+        }
+
+        .marquee-track {
+            width: max-content;
+
+            display: flex;
+            gap: 55px;
+
+            padding: 18px 0;
+
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee span {
+            color: #6e7282;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .2em;
+            white-space: nowrap;
+        }
+
+        .marquee span::before {
+            content: "✦";
+            color: var(--blue);
+            margin-right: 55px;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 130px 7vw;
+        }
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 40px;
+
+            margin-bottom: 60px;
+        }
+
+        .section-number {
+            color: #555a6c;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .2em;
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(38px, 5vw, 70px);
+            line-height: .95;
+            letter-spacing: -.06em;
+        }
+
+        .section-description {
+            max-width: 430px;
+
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           UNIVERSE
+        ========================= */
+
+        .universe {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--line);
+            border-left: 1px solid var(--line);
+        }
+
+        .universe-item {
+            min-height: 290px;
+
+            padding: 30px;
+
+            border-right: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+
+            position: relative;
+            overflow: hidden;
+
+            transition: .4s;
+        }
+
+        .universe-item::after {
+            content: "";
+
+            position: absolute;
+            width: 160px;
+            height: 160px;
+
+            right: -80px;
+            bottom: -80px;
+
+            border-radius: 50%;
+
+            background: var(--accent);
+            filter: blur(70px);
+            opacity: 0;
+
+            transition: .4s;
+        }
+
+        .universe-item:hover {
+            background: rgba(255,255,255,.025);
+        }
+
+        .universe-item:hover::after {
+            opacity: .18;
+        }
+
+        .universe-index {
+            color: #565b6b;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .universe-icon {
+            font-size: 38px;
+            margin-top: 55px;
+            margin-bottom: 30px;
+        }
+
+        .universe-item h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .universe-item p {
+            color: #777c8e;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .project-main {
+            min-height: 520px;
+
+            display: grid;
+            grid-template-columns: 1.15fr .85fr;
+
+            border: 1px solid var(--line);
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 70% 40%, rgba(91,140,255,.12), transparent 35%),
+                #0a0b10;
+        }
+
+        .project-image {
+            position: relative;
+            min-height: 500px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(135deg, rgba(91,140,255,.07), transparent),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255,255,255,.025) 0,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px,
+                    transparent 12px
+                );
+        }
+
+        .laser-machine {
+            width: 65%;
+            aspect-ratio: 1.4;
+
+            border: 1px solid rgba(255,255,255,.13);
+
+            background:
+                linear-gradient(145deg, #1b1d27, #08090d);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.5),
+                0 0 80px rgba(91,140,255,.08);
+
+            position: relative;
+        }
+
+        .laser-machine::before {
+            content: "";
+
+            position: absolute;
+            left: 8%;
+            right: 8%;
+            top: 12%;
+            bottom: 25%;
+
+            border: 1px solid rgba(91,140,255,.2);
+
+            background:
+                radial-gradient(circle at 50% 50%, rgba(91,140,255,.2), transparent 40%);
+        }
+
+        .laser-line {
+            position: absolute;
+
+            width: 80%;
+            height: 2px;
+
+            left: 10%;
+            top: 45%;
+
+            background: linear-gradient(90deg, transparent, #4f8cff, transparent);
+
+            box-shadow: 0 0 15px #4f8cff;
+
+            animation: laser 2.5s ease-in-out infinite;
+        }
+
+        .project-content {
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .tag {
+            color: #7da4ff;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .project-content h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(35px, 4vw, 55px);
+            line-height: .95;
+            letter-spacing: -.05em;
+        }
+
+        .project-content p {
+            margin-top: 25px;
+
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .project-small {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .small-project {
+            min-height: 210px;
+
+            padding: 28px;
+
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.018);
+
+            transition: .35s;
+        }
+
+        .small-project:hover {
+            transform: translateY(-6px);
+            border-color: rgba(91,140,255,.3);
+        }
+
+        .small-project .number {
+            color: #555a6b;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .small-project h4 {
+            margin-top: 60px;
+
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 22px;
+        }
+
+        .small-project p {
+            margin-top: 9px;
+            color: #707587;
+            font-size: 12px;
+        }
+
+        /* =========================
+           COLLAB
+        ========================= */
+
+        .collab {
+            position: relative;
+            overflow: hidden;
+
+            padding: 80px;
+
+            border: 1px solid rgba(255,255,255,.09);
+
+            background:
+                radial-gradient(circle at 80% 50%, rgba(140,92,255,.2), transparent 35%),
+                radial-gradient(circle at 20% 50%, rgba(91,140,255,.15), transparent 35%),
+                #090a10;
+        }
+
+        .collab::before {
+            content: "";
+
+            position: absolute;
+            width: 500px;
+            height: 500px;
+
+            right: -250px;
+            top: -250px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,.08);
+        }
+
+        .collab-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .collab h2 {
+            font-size: clamp(42px, 6vw, 78px);
+        }
+
+        .collab p {
+            max-width: 550px;
+            color: #85899a;
+            line-height: 1.7;
+            margin-top: 25px;
+        }
+
+        .collab .btn {
+            margin-top: 30px;
+        }
+
+        /* =========================
+           NETWORKS
+        ========================= */
+
+        .networks {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .network {
+            min-height: 180px;
+
+            padding: 28px;
+
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,.018);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition: .35s;
+        }
+
+        .network:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,.035);
+            border-color: rgba(91,140,255,.28);
+        }
+
+        .network-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .network-icon {
+            font-size: 27px;
+        }
+
+        .network-arrow {
+            color: #555a69;
+            font-size: 18px;
+        }
+
+        .network h3 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 21px;
+        }
+
+        .network p {
+            margin-top: 5px;
+            color: #686d7e;
+            font-size: 11px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 55px 7vw 35px;
+
+            border-top: 1px solid var(--line);
+
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+        }
+
+        footer strong {
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: .08em;
+        }
+
+        footer p {
+            color: #555a69;
+            font-size: 11px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes pulse {
+            0%,100% {
+                transform: scale(1);
+                opacity: .8;
+            }
+
+            50% {
+                transform: scale(1.07);
+                opacity: 1;
+            }
+        }
+
+        @keyframes laser {
+            0%,100% {
+                opacity: .2;
+                transform: translateX(-20px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(20px);
+            }
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* =========================
+           REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 950px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 130px;
+            }
+
+            .hero-visual {
+                min-height: 420px;
+            }
+
+            .universe {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-main {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                min-height: 350px;
+            }
+
+            .project-small {
+                grid-template-columns: 1fr;
+            }
+
+            .networks {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-contact {
+                padding: 9px 13px;
+                font-size: 11px;
+            }
+
+            .hero {
+                padding: 120px 22px 70px;
+            }
+
+            h1 {
+                font-size: 57px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-visual {
+                min-height: 350px;
+            }
+
+            .hero-logo {
+                width: 190px;
+                height: 190px;
+            }
+
+            .hero-logo-inner strong {
+                font-size: 42px;
+            }
+
+            .orb {
+                width: 250px;
+                height: 250px;
+            }
+
+            section {
+                padding: 90px 22px;
+            }
+
+            .section-top {
+                display: block;
+                margin-bottom: 40px;
+            }
+
+            .section-description {
+                margin-top: 20px;
+            }
+
+            .universe {
+                grid-template-columns: 1fr;
+            }
+
+            .universe-item {
+                min-height: 230px;
+            }
+
+            .universe-icon {
+                margin-top: 35px;
+            }
+
+            .project-content {
+                padding: 35px 25px;
+            }
+
+            .collab {
+                padding: 45px 25px;
+            }
+
+            .networks {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 40px 22px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .floating {
+                font-size: 8px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
-<header class="navbar">
-
-    <a href="#top" class="brand">
-        <span class="brand-main">CELIAN</span><span class="brand-accent">LAB</span>
-    </a>
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
     <nav>
+        <a href="#" class="logo">CELIAN<span>LAB</span></a>
 
-        <a href="#univers">Univers</a>
+        <div class="nav-links">
+            <a href="#univers">Univers</a>
+            <a href="#projets">Projets</a>
+            <a href="#collaboration">Collaboration</a>
+            <a href="#reseaux">Réseaux</a>
+        </div>
 
-        <a href="#projets">Projets</a>
-
-        <a href="#partenaires">Partenariats</a>
-
-        <a href="#reseaux">Réseaux</a>
-
+        <a href="mailto:contact@celianlab.fr" class="nav-contact">
+            Collaborer
+        </a>
     </nav>
 
-    <a href="#partenaires" class="nav-cta">
-        Collaborer
-    </a>
 
-</header>
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span class="status-dot"></span>
+                    Créateur indépendant
+                </div>
+
+                <h1>
+                    JE CRÉE.<br>
+                    JE TESTE.<br>
+                    <span class="gradient">JE PARTAGE.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Bienvenue dans le laboratoire.
+                    Gaming, création, laser, bricolage, technologie et IA :
+                    je transforme les idées en projets concrets.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projets" class="btn btn-primary">
+                        Découvrir les projets →
+                    </a>
+
+                    <a href="#reseaux" class="btn btn-secondary">
+                        Mes réseaux
+                    </a>
+                </div>
+
+            </div>
 
 
+            <div class="hero-visual">
 
-<main id="top">
+                <div class="orb"></div>
+
+                <div class="hero-logo">
+                    <div class="hero-logo-inner">
+                        <strong>CL</strong>
+                        <span>CELIANLAB</span>
+                    </div>
+                </div>
+
+                <div class="floating one">
+                    ⚡ LASER
+                </div>
+
+                <div class="floating two">
+                    🎮 GAMING
+                </div>
+
+                <div class="floating three">
+                    🤖 IA + TECH
+                </div>
+
+            </div>
+
+        </section>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+        <!-- =========================
+             MARQUEE
+        ========================= -->
 
-<section class="hero">
+        <div class="marquee">
+            <div class="marquee-track">
 
-    <div class="hero-background">
-        <div class="orb orb-blue"></div>
-        <div class="orb orb-purple"></div>
-        <div class="grid-background"></div>
-    </div>
+                <span>GAMING</span>
+                <span>MAKER</span>
+                <span>LASER</span>
+                <span>BRICOLAGE</span>
+                <span>IA</span>
+                <span>TECH</span>
+                <span>CRÉATION</span>
 
+                <span>GAMING</span>
+                <span>MAKER</span>
+                <span>LASER</span>
+                <span>BRICOLAGE</span>
+                <span>IA</span>
+                <span>TECH</span>
+                <span>CRÉATION</span>
 
-    <div class="hero-content">
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            CELIANLAB EST EN LIGNE
-
+            </div>
         </div>
 
 
-        <h1>
+        <!-- =========================
+             UNIVERS
+        ========================= -->
 
-            JE CRÉE.<br>
+        <section id="univers">
 
-            <span>JE TESTE.</span><br>
+            <div class="section-top reveal">
 
-            JE PARTAGE.
+                <div>
+                    <div class="section-number">01 / UNIVERS</div>
+                    <h2>MON TERRAIN<br>DE JEU.</h2>
+                </div>
 
-        </h1>
+                <p class="section-description">
+                    Quatre univers qui se mélangent au quotidien.
+                    L'objectif : apprendre, expérimenter et créer des choses
+                    que j'ai réellement envie d'utiliser.
+                </p>
+
+            </div>
 
 
-        <p class="hero-text">
+            <div class="universe">
 
-            Gaming, création, bricolage, laser,
-            technologie et IA.
+                <article class="universe-item reveal" style="--accent:#8b5cf6;">
+                    <div class="universe-index">01</div>
+                    <div class="universe-icon">🎮</div>
+                    <h3>Gaming</h3>
+                    <p>
+                        Jeux, streaming, setup et tout ce qui tourne
+                        autour de l'univers gaming.
+                    </p>
+                </article>
 
-            <br>
 
-            Bienvenue dans l'univers
-            <strong>CelianLab.</strong>
+                <article class="universe-item reveal" style="--accent:#4d8dff;">
+                    <div class="universe-index">02</div>
+                    <div class="universe-icon">⚡</div>
+                    <h3>Laser</h3>
+                    <p>
+                        Gravure, découpe, personnalisation et fabrication
+                        de projets uniques.
+                    </p>
+                </article>
 
+
+                <article class="universe-item reveal" style="--accent:#00d9ff;">
+                    <div class="universe-index">03</div>
+                    <div class="universe-icon">🔧</div>
+                    <h3>Maker</h3>
+                    <p>
+                        Bricolage, fabrication, réparation et expérimentation
+                        dans l'atelier.
+                    </p>
+                </article>
+
+
+                <article class="universe-item reveal" style="--accent:#d34cff;">
+                    <div class="universe-index">04</div>
+                    <div class="universe-icon">🤖</div>
+                    <h3>IA & Tech</h3>
+                    <p>
+                        Automatisation, intelligence artificielle et nouvelles
+                        technologies.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJETS
+        ========================= -->
+
+        <section id="projets">
+
+            <div class="section-top reveal">
+
+                <div>
+                    <div class="section-number">02 / PROJETS</div>
+                    <h2>DES IDÉES.<br>DES OBJETS.</h2>
+                </div>
+
+                <p class="section-description">
+                    Le laboratoire sert surtout à passer de l'idée à quelque
+                    chose de réel. Voici le type de projets que je veux
+                    construire et partager.
+                </p>
+
+            </div>
+
+
+            <div class="project-main reveal">
+
+                <div class="project-image">
+
+                    <div class="laser-machine">
+                        <div class="laser-line"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="tag">Projet principal / Laser</div>
+
+                    <h3>
+                        CRÉER.<br>
+                        GRAVER.<br>
+                        RECOMMENCER.
+                    </h3>
+
+                    <p>
+                        Du prototype à l'objet final, le laser devient
+                        un véritable outil de création : décoration,
+                        personnalisation, accessoires et projets maison.
+                    </p>
+
+                    <a href="mailto:contact@celianlab.fr" class="btn btn-secondary" style="margin-top:30px; width:max-content;">
+                        Proposer un projet →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-small">
+
+                <article class="small-project reveal">
+                    <div class="number">PROJET / 01</div>
+                    <h4>DIY & Bricolage</h4>
+                    <p>Construire, modifier, améliorer.</p>
+                </article>
+
+                <article class="small-project reveal">
+                    <div class="number">PROJET / 02</div>
+                    <h4>Automatisation</h4>
+                    <p>Faire travailler la tech à ma place.</p>
+                </article>
+
+                <article class="small-project reveal">
+                    <div class="number">PROJET / 03</div>
+                    <h4>Gaming Setup</h4>
+                    <p>Tester et améliorer mon environnement.</p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             COLLABORATION
+        ========================= -->
+
+        <section id="collaboration">
+
+            <div class="collab reveal">
+
+                <div class="collab-content">
+
+                    <div class="section-number">
+                        03 / COLLABORATION
+                    </div>
+
+                    <h2>
+                        UNE MARQUE ?<br>
+                        UN PROJET ?
+                    </h2>
+
+                    <p>
+                        Je suis ouvert aux collaborations avec des marques,
+                        créateurs et projets qui correspondent à mon univers :
+                        gaming, maker, bricolage, laser, tech et IA.
+                    </p>
+
+                    <a href="mailto:contact@celianlab.fr" class="btn btn-primary">
+                        Parlons-en →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESEAUX
+        ========================= -->
+
+        <section id="reseaux">
+
+            <div class="section-top reveal">
+
+                <div>
+                    <div class="section-number">04 / RÉSEAUX</div>
+                    <h2>RETROUVE<br>LE LAB.</h2>
+                </div>
+
+                <p class="section-description">
+                    Les coulisses, les projets, le gaming et les expériences
+                    sont partagés sur plusieurs plateformes.
+                </p>
+
+            </div>
+
+
+            <div class="networks">
+
+                <a href="https://www.twitch.tv/CelianLab" target="_blank" class="network reveal">
+                    <div class="network-top">
+                        <span class="network-icon">◉</span>
+                        <span class="network-arrow">↗</span>
+                    </div>
+
+                    <div>
+                        <h3>Twitch</h3>
+                        <p>Lives & Gaming</p>
+                    </div>
+                </a>
+
+
+                <a href="https://www.youtube.com/@CelianLab" target="_blank" class="network reveal">
+                    <div class="network-top">
+                        <span class="network-icon">▶</span>
+                        <span class="network-arrow">↗</span>
+                    </div>
+
+                    <div>
+                        <h3>YouTube</h3>
+                        <p>Vidéos & projets</p>
+                    </div>
+                </a>
+
+
+                <a href="https://www.tiktok.com/@CelianLab" target="_blank" class="network reveal">
+                    <div class="network-top">
+                        <span class="network-icon">♪</span>
+                        <span class="network-arrow">↗</span>
+                    </div>
+
+                    <div>
+                        <h3>TikTok</h3>
+                        <p>Formats courts</p>
+                    </div>
+                </a>
+
+
+                <a href="https://www.instagram.com/CelianLab" target="_blank" class="network reveal">
+                    <div class="network-top">
+                        <span class="network-icon">◎</span>
+                        <span class="network-arrow">↗</span>
+                    </div>
+
+                    <div>
+                        <h3>Instagram</h3>
+                        <p>Coulisses & créations</p>
+                    </div>
+                </a>
+
+
+                <a href="#" class="network reveal">
+                    <div class="network-top">
+                        <span class="network-icon">V</span>
+                        <span class="network-arrow">↗</span>
+                    </div>
+
+                    <div>
+                        <h3>Vinted</h3>
+                        <p>Créations & objets</p>
+                    </div>
+                </a>
+
+
+                <a href="#" class="network reveal">
+                    <div class="network-top">
+                        <span class="network-icon">C</span>
+                        <span class="network-arrow">↗</span>
+                    </div>
+
+                    <div>
+                        <h3>Cults3D</h3>
+                        <p>Fichiers & modèles 3D</p>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <strong>CELIAN<span style="color:#5b8cff;">LAB</span></strong>
+
+        <p>
+            GAMING · MAKER · LASER · BRICOLAGE · IA
         </p>
 
+        <p>
+            © 2026 CelianLab
+        </p>
 
-        <div class="hero-buttons">
+    </footer>
 
-            <a
-                href="#projets"
-                class="btn btn-primary">
 
-                Découvrir mes projets
-                <span>→</span>
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-            </a>
+    <script>
 
+        const reveals = document.querySelectorAll(".reveal");
 
-            <a
-                href="#reseaux"
-                class="btn btn-secondary">
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
 
-                Mes réseaux
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
 
-            </a>
+                    }
 
-        </div>
+                });
+            },
+            {
+                threshold: 0.12
+            }
+        );
 
+        reveals.forEach(element => {
+            observer.observe(element);
+        });
 
-        <div class="hero-mini-stats">
-
-            <div>
-
-                <strong>01</strong>
-
-                <span>Laboratoire</span>
-
-            </div>
-
-
-            <div>
-
-                <strong>∞</strong>
-
-                <span>Projets</span>
-
-            </div>
-
-
-            <div>
-
-                <strong>24/7</strong>
-
-                <span>Création</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- VISUEL -->
-
-    <div class="hero-visual">
-
-        <div class="hero-ring ring-one"></div>
-
-        <div class="hero-ring ring-two"></div>
-
-        <div class="hero-glow"></div>
-
-
-        <!--
-        =====================================================
-        TON LOGO
-
-        PLUS TARD :
-
-        remplace le contenu de cette div par ton image.
-
-        Exemple :
-
-        <img src="images/logo.png">
-
-        =====================================================
-        -->
-
-        <div class="hero-logo">
-
-            <span>CL</span>
-
-        </div>
-
-
-        <div class="floating floating-one">
-
-            <span>🔥</span>
-
-            LASER
-
-        </div>
-
-
-        <div class="floating floating-two">
-
-            <span>🎮</span>
-
-            GAMING
-
-        </div>
-
-
-        <div class="floating floating-three">
-
-            <span>🤖</span>
-
-            IA
-
-        </div>
-
-
-        <div class="floating floating-four">
-
-            <span>🛠️</span>
-
-            MAKER
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     BARRE DYNAMIQUE
-===================================================== -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-        <span>GAMING</span>
-        <i>✦</i>
-
-        <span>MAKER</span>
-        <i>✦</i>
-
-        <span>LASER</span>
-        <i>✦</i>
-
-        <span>BRICOLAGE</span>
-        <i>✦</i>
-
-        <span>IA</span>
-        <i>✦</i>
-
-        <span>CRÉATION</span>
-        <i>✦</i>
-
-        <span>GAMING</span>
-        <i>✦</i>
-
-        <span>MAKER</span>
-        <i>✦</i>
-
-        <span>LASER</span>
-        <i>✦</i>
-
-        <span>IA</span>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     UNIVERS
-===================================================== -->
-
-<section id="univers" class="section">
-
-    <div class="section-title">
-
-        <span>01 — UNIVERS</span>
-
-        <h2>
-            Un laboratoire.<br>
-            <em>Plusieurs passions.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="universe-grid">
-
-
-        <article class="universe-card">
-
-            <div class="card-number">01</div>
-
-            <div class="big-icon">🎮</div>
-
-            <h3>Gaming</h3>
-
-            <p>
-                Gaming, Twitch, jeux vidéo
-                et contenu autour de mes sessions.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-
-        <article class="universe-card">
-
-            <div class="card-number">02</div>
-
-            <div class="big-icon">🔥</div>
-
-            <h3>Laser</h3>
-
-            <p>
-                Gravure, découpe et créations
-                personnalisées dans l'atelier.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-
-        <article class="universe-card">
-
-            <div class="card-number">03</div>
-
-            <div class="big-icon">🛠️</div>
-
-            <h3>Maker</h3>
-
-            <p>
-                DIY, bricolage et fabrication
-                de projets concrets.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-
-        <article class="universe-card">
-
-            <div class="card-number">04</div>
-
-            <div class="big-icon">🤖</div>
-
-            <h3>IA & Tech</h3>
-
-            <p>
-                Automatisation, intelligence
-                artificielle et expérimentation.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJETS
-===================================================== -->
-
-<section id="projets" class="section projects-section">
-
-    <div class="section-title">
-
-        <span>02 — PROJETS</span>
-
-        <h2>
-            Ce que je<br>
-            <em>suis en train de créer.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="project-feature">
-
-
-        <div class="project-visual">
-
-            <div class="project-glow"></div>
-
-            <div class="project-symbol">
-                🔥
-            </div>
-
-            <span class="project-label">
-                CELIANLAB / LASER
-            </span>
-
-        </div>
-
-
-        <div class="project-info">
-
-            <span class="eyebrow">
-                PROJET #001
-            </span>
-
-            <h3>
-                Créations<br>
-                laser
-            </h3>
-
-            <p>
-                Création d'objets personnalisés,
-                gravures et projets réalisés
-                directement dans l'atelier.
-            </p>
-
-            <a href="#reseaux" class="text-button">
-                Voir les prochaines créations →
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="project-small-grid">
-
-
-        <article>
-
-            <span>02</span>
-
-            <h3>DIY & Bricolage</h3>
-
-            <p>
-                Construire plutôt qu'acheter.
-            </p>
-
-        </article>
-
-
-        <article>
-
-            <span>03</span>
-
-            <h3>Automatisation</h3>
-
-            <p>
-                Faire travailler la technologie.
-            </p>
-
-        </article>
-
-
-        <article>
-
-            <span>04</span>
-
-            <h3>Gaming</h3>
-
-            <p>
-                Jouer, streamer et partager.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PARTENARIATS
-===================================================== -->
-
-<section id="partenaires" class="partnership-section">
-
-
-    <div class="partnership-inner">
-
-
-        <div class="partnership-content">
-
-            <span class="eyebrow">
-                PARTENARIATS
-            </span>
-
-            <h2>
-                Une marque ?
-                <br>
-                <em>Un projet ?</em>
-            </h2>
-
-            <p>
-                Je suis ouvert aux collaborations,
-                partenariats, tests produits,
-                créations personnalisées et projets
-                avec des marques qui correspondent
-                à l'univers CelianLab.
-            </p>
-
-
-            <a
-                href="mailto:contact@celianlab.fr"
-                class="btn btn-white">
-
-                Me contacter
-                →
-                
-            </a>
-
-        </div>
-
-
-        <div class="partnership-visual">
-
-            <div class="partnership-circle">
-
-                <span>✦</span>
-
-            </div>
-
-            <div class="partner-card partner-a">
-                BRAND
-            </div>
-
-            <div class="partner-card partner-b">
-                CREATOR
-            </div>
-
-            <div class="partner-card partner-c">
-                MAKER
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     RÉSEAUX
-===================================================== -->
-
-<section id="reseaux" class="section networks-section">
-
-
-    <div class="section-title">
-
-        <span>03 — RÉSEAUX</span>
-
-        <h2>
-            Retrouve<br>
-            <em>CelianLab.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="network-grid">
-
-
-        <a href="#" class="network-card twitch">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/twitch/FFFFFF"
-                    alt="Twitch">
-
-            </div>
-
-            <div>
-
-                <strong>Twitch</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card youtube">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/youtube/FFFFFF"
-                    alt="YouTube">
-
-            </div>
-
-            <div>
-
-                <strong>YouTube</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card tiktok">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/tiktok/FFFFFF"
-                    alt="TikTok">
-
-            </div>
-
-            <div>
-
-                <strong>TikTok</strong>
-
-                <span>@CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card instagram">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/instagram/FFFFFF"
-                    alt="Instagram">
-
-            </div>
-
-            <div>
-
-                <strong>Instagram</strong>
-
-                <span>@CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card vinted">
-
-            <div class="network-icon">
-
-                <strong>V</strong>
-
-            </div>
-
-            <div>
-
-                <strong>Vinted</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card cults">
-
-            <div class="network-icon">
-
-                <strong>C</strong>
-
-            </div>
-
-            <div>
-
-                <strong>Cults3D</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CTA FINAL
-===================================================== -->
-
-<section class="final-cta">
-
-    <div>
-
-        <span>CELIANLAB</span>
-
-        <h2>
-            Le laboratoire<br>
-            ne fait que commencer.
-        </h2>
-
-    </div>
-
-
-    <a href="#reseaux">
-
-        Suivre l'aventure
-        <span>→</span>
-
-    </a>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <div class="footer-brand">
-
-        CELIAN<span>LAB</span>
-
-    </div>
-
-
-    <p>
-        GAMING · MAKER · BRICOLAGE · LASER · IA
-    </p>
-
-
-    <small>
-        © 2026 CelianLab — Tous droits réservés.
-    </small>
-
-</footer>
-
-
-<script src="script.js"></script>
+    </script>
 
 </body>
-
 </html>
