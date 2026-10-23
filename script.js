@@ -1,39 +1,15 @@
-```javascript
-/*
-    CELIANLAB
-    =========
-    Modifie uniquement les liens ci-dessous.
-*/
+const menuButton = document.getElementById("menuButton");
+const header = document.querySelector(".header");
+const navLinks = document.querySelectorAll(".nav a");
 
-const links = {
-    twitch: "https://www.twitch.tv/CelianLab",
-    youtube: "https://www.youtube.com/@CelianLab",
-    tiktok: "https://www.tiktok.com/@CelianLab",
-    instagram: "https://www.instagram.com/CelianLab"
-};
-
-
-/*
-    Ne rien modifier sous cette ligne.
-*/
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    document.querySelectorAll(".twitch").forEach(function (link) {
-        link.href = links.twitch;
+if (menuButton) {
+    menuButton.addEventListener("click", () => {
+        header.classList.toggle("menu-open");
     });
+}
 
-    document.querySelectorAll(".youtube").forEach(function (link) {
-        link.href = links.youtube;
+navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+        header.classList.remove("menu-open");
     });
-
-    document.querySelectorAll(".tiktok").forEach(function (link) {
-        link.href = links.tiktok;
-    });
-
-    document.querySelectorAll(".instagram").forEach(function (link) {
-        link.href = links.instagram;
-    });
-
 });
-```
