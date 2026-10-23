@@ -1,784 +1,448 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>CelianLab — Montage vidéo & création de contenu</title>
+    <meta name="description" content="CelianLab — Montage vidéo, création de contenu et Twitch. J'aide les petits créateurs à améliorer leurs vidéos.">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-<title>CelianLab — Créateur • Maker • Gaming • Laser</title>
-
-<meta name="description"
-      content="CelianLab — Gaming, Maker, Laser, DIY, IA et création.">
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
-
 <header class="navbar">
-
-    <a href="#top" class="brand">
-        <span class="brand-main">CELIAN</span><span class="brand-accent">LAB</span>
-    </a>
+    <a href="#accueil" class="logo">CELIAN<span>LAB</span></a>
 
     <nav>
-
-        <a href="#univers">Univers</a>
-
-        <a href="#projets">Projets</a>
-
-        <a href="#partenaires">Partenariats</a>
-
+        <a href="#montages">Montages</a>
+        <a href="#methode">Comment ça marche</a>
+        <a href="#avis">Avis</a>
         <a href="#reseaux">Réseaux</a>
-
     </nav>
 
-    <a href="#partenaires" class="nav-cta">
-        Collaborer
-    </a>
-
+    <a href="#contact" class="nav-button">Me contacter</a>
 </header>
 
 
+<main>
 
-<main id="top">
+    <!-- HERO -->
+    <section class="hero" id="accueil">
 
+        <div class="hero-background"></div>
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+        <div class="hero-content">
 
-<section class="hero">
-
-    <div class="hero-background">
-        <div class="orb orb-blue"></div>
-        <div class="orb orb-purple"></div>
-        <div class="grid-background"></div>
-    </div>
-
-
-    <div class="hero-content">
-
-        <div class="status">
-
-            <span class="status-dot"></span>
-
-            CELIANLAB EST EN LIGNE
-
-        </div>
-
-
-        <h1>
-
-            JE CRÉE.<br>
-
-            <span>JE TESTE.</span><br>
-
-            JE PARTAGE.
-
-        </h1>
-
-
-        <p class="hero-text">
-
-            Gaming, création, bricolage, laser,
-            technologie et IA.
-
-            <br>
-
-            Bienvenue dans l'univers
-            <strong>CelianLab.</strong>
-
-        </p>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#projets"
-                class="btn btn-primary">
-
-                Découvrir mes projets
-                <span>→</span>
-
-            </a>
-
-
-            <a
-                href="#reseaux"
-                class="btn btn-secondary">
-
-                Mes réseaux
-
-            </a>
-
-        </div>
-
-
-        <div class="hero-mini-stats">
-
-            <div>
-
-                <strong>01</strong>
-
-                <span>Laboratoire</span>
-
+            <div class="status">
+                <span></span>
+                CELIANLAB EST EN CONSTRUCTION
             </div>
 
+            <h1>
+                TES VIDÉOS.<br>
+                <span>MON MONTAGE.</span>
+            </h1>
 
-            <div>
+            <p class="hero-text">
+                Je développe mes compétences en montage vidéo en aidant
+                gratuitement de petits créateurs à rendre leurs contenus
+                plus dynamiques et plus captivants.
+            </p>
 
-                <strong>∞</strong>
+            <div class="hero-buttons">
+                <a href="#contact" class="button primary">
+                    Me proposer une vidéo
+                    <span>→</span>
+                </a>
 
-                <span>Projets</span>
-
+                <a href="#montages" class="button secondary">
+                    Voir mes montages
+                </a>
             </div>
 
+            <div class="hero-stats">
+                <div>
+                    <strong>01</strong>
+                    <span>objectif</span>
+                </div>
 
-            <div>
+                <div>
+                    <strong>∞</strong>
+                    <span>progression</span>
+                </div>
 
-                <strong>24/7</strong>
-
-                <span>Création</span>
-
+                <div>
+                    <strong>100%</strong>
+                    <span>gratuit</span>
+                </div>
             </div>
 
         </div>
 
-    </div>
 
+        <div class="hero-visual">
 
+            <div class="visual-grid"></div>
 
-    <!-- VISUEL -->
-
-    <div class="hero-visual">
-
-        <div class="hero-ring ring-one"></div>
-
-        <div class="hero-ring ring-two"></div>
-
-        <div class="hero-glow"></div>
-
-
-        <!--
-        =====================================================
-        TON LOGO
-
-        PLUS TARD :
-
-        remplace le contenu de cette div par ton image.
-
-        Exemple :
-
-        <img src="images/logo.png">
-
-        =====================================================
-        -->
-
-        <div class="hero-logo">
-
-            <span>CL</span>
-
-        </div>
-
-
-        <div class="floating floating-one">
-
-            <span>🔥</span>
-
-            LASER
-
-        </div>
-
-
-        <div class="floating floating-two">
-
-            <span>🎮</span>
-
-            GAMING
-
-        </div>
-
-
-        <div class="floating floating-three">
-
-            <span>🤖</span>
-
-            IA
-
-        </div>
-
-
-        <div class="floating floating-four">
-
-            <span>🛠️</span>
-
-            MAKER
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     BARRE DYNAMIQUE
-===================================================== -->
-
-<div class="marquee">
-
-    <div class="marquee-track">
-
-        <span>GAMING</span>
-        <i>✦</i>
-
-        <span>MAKER</span>
-        <i>✦</i>
-
-        <span>LASER</span>
-        <i>✦</i>
-
-        <span>BRICOLAGE</span>
-        <i>✦</i>
-
-        <span>IA</span>
-        <i>✦</i>
-
-        <span>CRÉATION</span>
-        <i>✦</i>
-
-        <span>GAMING</span>
-        <i>✦</i>
-
-        <span>MAKER</span>
-        <i>✦</i>
-
-        <span>LASER</span>
-        <i>✦</i>
-
-        <span>IA</span>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     UNIVERS
-===================================================== -->
-
-<section id="univers" class="section">
-
-    <div class="section-title">
-
-        <span>01 — UNIVERS</span>
-
-        <h2>
-            Un laboratoire.<br>
-            <em>Plusieurs passions.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="universe-grid">
-
-
-        <article class="universe-card">
-
-            <div class="card-number">01</div>
-
-            <div class="big-icon">🎮</div>
-
-            <h3>Gaming</h3>
-
-            <p>
-                Gaming, Twitch, jeux vidéo
-                et contenu autour de mes sessions.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-
-        <article class="universe-card">
-
-            <div class="card-number">02</div>
-
-            <div class="big-icon">🔥</div>
-
-            <h3>Laser</h3>
-
-            <p>
-                Gravure, découpe et créations
-                personnalisées dans l'atelier.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-
-        <article class="universe-card">
-
-            <div class="card-number">03</div>
-
-            <div class="big-icon">🛠️</div>
-
-            <h3>Maker</h3>
-
-            <p>
-                DIY, bricolage et fabrication
-                de projets concrets.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-
-        <article class="universe-card">
-
-            <div class="card-number">04</div>
-
-            <div class="big-icon">🤖</div>
-
-            <h3>IA & Tech</h3>
-
-            <p>
-                Automatisation, intelligence
-                artificielle et expérimentation.
-            </p>
-
-            <div class="card-line"></div>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJETS
-===================================================== -->
-
-<section id="projets" class="section projects-section">
-
-    <div class="section-title">
-
-        <span>02 — PROJETS</span>
-
-        <h2>
-            Ce que je<br>
-            <em>suis en train de créer.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="project-feature">
-
-
-        <div class="project-visual">
-
-            <div class="project-glow"></div>
-
-            <div class="project-symbol">
-                🔥
+            <div class="visual-card card-top">
+                <span>VIDEO</span>
+                <strong>EDITING</strong>
             </div>
 
-            <span class="project-label">
-                CELIANLAB / LASER
-            </span>
+            <div class="visual-card card-bottom">
+                <span>CREATOR</span>
+                <strong>CELIANLAB</strong>
+            </div>
+
+            <div class="main-orb">
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div>
+
+                <div class="orb-content">
+                    <strong>CL</strong>
+                    <span>CREATE<br>EDIT<br>REPEAT</span>
+                </div>
+            </div>
 
         </div>
 
-
-        <div class="project-info">
-
-            <span class="eyebrow">
-                PROJET #001
-            </span>
-
-            <h3>
-                Créations<br>
-                laser
-            </h3>
-
-            <p>
-                Création d'objets personnalisés,
-                gravures et projets réalisés
-                directement dans l'atelier.
-            </p>
-
-            <a href="#reseaux" class="text-button">
-                Voir les prochaines créations →
-            </a>
-
-        </div>
-
-    </div>
+    </section>
 
 
-    <div class="project-small-grid">
+    <!-- PRESENTATION -->
+    <section class="section intro">
 
+        <div class="section-label">01 — LE PROJET</div>
 
-        <article>
-
-            <span>02</span>
-
-            <h3>DIY & Bricolage</h3>
-
-            <p>
-                Construire plutôt qu'acheter.
-            </p>
-
-        </article>
-
-
-        <article>
-
-            <span>03</span>
-
-            <h3>Automatisation</h3>
-
-            <p>
-                Faire travailler la technologie.
-            </p>
-
-        </article>
-
-
-        <article>
-
-            <span>04</span>
-
-            <h3>Gaming</h3>
-
-            <p>
-                Jouer, streamer et partager.
-            </p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PARTENARIATS
-===================================================== -->
-
-<section id="partenaires" class="partnership-section">
-
-
-    <div class="partnership-inner">
-
-
-        <div class="partnership-content">
-
-            <span class="eyebrow">
-                PARTENARIATS
-            </span>
+        <div class="intro-grid">
 
             <h2>
-                Une marque ?
-                <br>
-                <em>Un projet ?</em>
+                Je veux devenir<br>
+                <span>meilleur en créant.</span>
+            </h2>
+
+            <div>
+                <p>
+                    CelianLab est mon espace pour apprendre, créer et
+                    progresser dans le monde de la création de contenu.
+                </p>
+
+                <p>
+                    Je propose actuellement mes services de montage
+                    gratuitement à de petits créateurs afin de m'entraîner,
+                    construire mon portfolio et les aider à améliorer leurs
+                    vidéos.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MONTAGES -->
+    <section class="section" id="montages">
+
+        <div class="section-heading">
+            <div>
+                <div class="section-label">02 — PORTFOLIO</div>
+                <h2>Mes <span>montages.</span></h2>
+            </div>
+
+            <p>
+                Chaque projet réalisé me permet d'apprendre quelque chose
+                de nouveau.
+            </p>
+        </div>
+
+
+        <div class="portfolio-grid">
+
+            <article class="portfolio-card featured">
+
+                <div class="portfolio-placeholder">
+                    <div>
+                        <span>PROCHAIN PROJET</span>
+                        <strong>TON<br>CONTENU</strong>
+                    </div>
+                </div>
+
+                <div class="portfolio-info">
+                    <span>À VENIR</span>
+                    <h3>Premier montage créateur</h3>
+                    <p>
+                        Cette section accueillera mes réalisations,
+                        clips Twitch, Shorts et vidéos verticales.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="portfolio-card small">
+
+                <div class="small-placeholder">
+                    <span>SHORT</span>
+                </div>
+
+                <div class="portfolio-info">
+                    <span>FORMAT</span>
+                    <h3>TikTok / Reels / Shorts</h3>
+                </div>
+
+            </article>
+
+
+            <article class="portfolio-card small">
+
+                <div class="small-placeholder">
+                    <span>TWITCH</span>
+                </div>
+
+                <div class="portfolio-info">
+                    <span>FORMAT</span>
+                    <h3>Clips & moments forts</h3>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- METHODE -->
+    <section class="section process-section" id="methode">
+
+        <div class="section-label">03 — LE PROCESSUS</div>
+
+        <h2>
+            Simple pour toi.<br>
+            <span>Utile pour moi.</span>
+        </h2>
+
+        <div class="process-grid">
+
+            <div class="process-card">
+                <span>01</span>
+                <h3>Tu m'envoies</h3>
+                <p>
+                    Une vidéo, un clip Twitch ou simplement les fichiers
+                    dont tu veux faire quelque chose.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <span>02</span>
+                <h3>Je monte</h3>
+                <p>
+                    Je travaille le rythme, les cuts, les effets,
+                    les sous-titres et tout ce qui peut améliorer la vidéo.
+                </p>
+            </div>
+
+            <div class="process-card">
+                <span>03</span>
+                <h3>Tu me donnes ton avis</h3>
+                <p>
+                    Ton retour m'aide à progresser et, avec ton accord,
+                    ton témoignage pourra apparaître sur ce site.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AVIS -->
+    <section class="section testimonials" id="avis">
+
+        <div class="section-heading">
+
+            <div>
+                <div class="section-label">04 — RETOURS</div>
+                <h2>Les créateurs <span>en parlent.</span></h2>
+            </div>
+
+            <p>
+                Les premiers avis apparaîtront ici après mes premiers projets.
+            </p>
+
+        </div>
+
+
+        <div class="testimonial-empty">
+
+            <div class="quote-mark">“</div>
+
+            <h3>Ton avis pourrait être le premier.</h3>
+
+            <p>
+                Je cherche actuellement mes premiers créateurs partenaires
+                pour réaliser des montages gratuitement.
+            </p>
+
+            <a href="#contact" class="text-link">
+                Participer au projet →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CREATOR -->
+    <section class="creator-section">
+
+        <div class="creator-inner">
+
+            <div>
+                <div class="section-label">05 — AU-DELÀ DU MONTAGE</div>
+
+                <h2>
+                    Je construis aussi<br>
+                    <span>mon propre contenu.</span>
+                </h2>
+
+                <p>
+                    En parallèle des montages pour d'autres créateurs,
+                    je développe CelianLab sur Twitch, YouTube, TikTok
+                    et Instagram.
+                </p>
+            </div>
+
+            <div class="creator-box">
+
+                <div class="creator-line">
+                    <span>TWITCH</span>
+                    <strong>CELIANLAB</strong>
+                </div>
+
+                <div class="creator-line">
+                    <span>YOUTUBE</span>
+                    <strong>CELIANLAB</strong>
+                </div>
+
+                <div class="creator-line">
+                    <span>TIKTOK</span>
+                    <strong>@CELIANLAB</strong>
+                </div>
+
+                <div class="creator-line">
+                    <span>INSTAGRAM</span>
+                    <strong>@CELIANLAB</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEAUX -->
+    <section class="section networks" id="reseaux">
+
+        <div class="section-label">06 — MES RÉSEAUX</div>
+
+        <h2>
+            Retrouve <span>CelianLab.</span>
+        </h2>
+
+        <div class="network-grid">
+
+            <a class="network twitch" href="#" target="_blank">
+                <img src="https://cdn.simpleicons.org/twitch/ffffff" alt="Twitch">
+                <div>
+                    <span>STREAM</span>
+                    <strong>Twitch</strong>
+                </div>
+                <b>↗</b>
+            </a>
+
+            <a class="network youtube" href="#" target="_blank">
+                <img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube">
+                <div>
+                    <span>VIDÉOS</span>
+                    <strong>YouTube</strong>
+                </div>
+                <b>↗</b>
+            </a>
+
+            <a class="network tiktok" href="#" target="_blank">
+                <img src="https://cdn.simpleicons.org/tiktok/ffffff" alt="TikTok">
+                <div>
+                    <span>SHORT FORM</span>
+                    <strong>TikTok</strong>
+                </div>
+                <b>↗</b>
+            </a>
+
+            <a class="network instagram" href="#" target="_blank">
+                <img src="https://cdn.simpleicons.org/instagram/ffffff" alt="Instagram">
+                <div>
+                    <span>COMMUNAUTÉ</span>
+                    <strong>Instagram</strong>
+                </div>
+                <b>↗</b>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+
+        <div class="contact-inner">
+
+            <div class="section-label">07 — COLLABORER</div>
+
+            <h2>
+                Tu as une vidéo<br>
+                <span>à monter ?</span>
             </h2>
 
             <p>
-                Je suis ouvert aux collaborations,
-                partenariats, tests produits,
-                créations personnalisées et projets
-                avec des marques qui correspondent
-                à l'univers CelianLab.
+                Tu es un petit créateur et tu veux tester ce que je peux
+                faire avec ton contenu ? Contacte-moi.
             </p>
 
-
-            <a
-                href="celiandbs.contact@gmail.com"
-                class="btn btn-white">
-
-                Me contacter
-                →
-                
+            <a class="contact-button" href="mailto:contact@celianlab.fr">
+                Me proposer une vidéo
+                <span>→</span>
             </a>
 
-        </div>
-
-
-        <div class="partnership-visual">
-
-            <div class="partnership-circle">
-
-                <span>✦</span>
-
-            </div>
-
-            <div class="partner-card partner-a">
-                BRAND
-            </div>
-
-            <div class="partner-card partner-b">
-                CREATOR
-            </div>
-
-            <div class="partner-card partner-c">
-                MAKER
-            </div>
+            <small>
+                Montage actuellement proposé gratuitement dans le cadre
+                de mon apprentissage.
+            </small>
 
         </div>
 
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     RÉSEAUX
-===================================================== -->
-
-<section id="reseaux" class="section networks-section">
-
-
-    <div class="section-title">
-
-        <span>03 — RÉSEAUX</span>
-
-        <h2>
-            Retrouve<br>
-            <em>CelianLab.</em>
-        </h2>
-
-    </div>
-
-
-    <div class="network-grid">
-
-
-        <a href="#" class="network-card twitch">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/twitch/FFFFFF"
-                    alt="Twitch">
-
-            </div>
-
-            <div>
-
-                <strong>Twitch</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card youtube">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/youtube/FFFFFF"
-                    alt="YouTube">
-
-            </div>
-
-            <div>
-
-                <strong>YouTube</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card tiktok">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/tiktok/FFFFFF"
-                    alt="TikTok">
-
-            </div>
-
-            <div>
-
-                <strong>TikTok</strong>
-
-                <span>@CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card instagram">
-
-            <div class="network-icon">
-
-                <img
-                    src="https://cdn.simpleicons.org/instagram/FFFFFF"
-                    alt="Instagram">
-
-            </div>
-
-            <div>
-
-                <strong>Instagram</strong>
-
-                <span>@CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card vinted">
-
-            <div class="network-icon">
-
-                <strong>V</strong>
-
-            </div>
-
-            <div>
-
-                <strong>Vinted</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-
-        <a href="#" class="network-card cults">
-
-            <div class="network-icon">
-
-                <strong>C</strong>
-
-            </div>
-
-            <div>
-
-                <strong>Cults3D</strong>
-
-                <span>CelianLab</span>
-
-            </div>
-
-            <b>↗</b>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CTA FINAL
-===================================================== -->
-
-<section class="final-cta">
-
-    <div>
-
-        <span>CELIANLAB</span>
-
-        <h2>
-            Le laboratoire<br>
-            ne fait que commencer.
-        </h2>
-
-    </div>
-
-
-    <a href="#reseaux">
-
-        Suivre l'aventure
-        <span>→</span>
-
-    </a>
-
-</section>
-
+    </section>
 
 </main>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
-    <div class="footer-brand">
-
-        CELIAN<span>LAB</span>
-
-    </div>
-
+    <div class="footer-logo">CELIAN<span>LAB</span></div>
 
     <p>
-        GAMING · MAKER · BRICOLAGE · LASER · IA
+        Gaming · Création · Montage · Twitch
     </p>
 
-
-    <small>
-        © 2026 CelianLab — Tous droits réservés.
-    </small>
+    <span>© 2026 CELIANLAB</span>
 
 </footer>
 
@@ -786,5 +450,5 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
+```
