@@ -2,40 +2,45 @@ const menuButton = document.querySelector(".menu-button");
 const navLinks = document.querySelector(".nav-links");
 
 
-// ============================
-// MOBILE MENU
-// ============================
+// =========================
+// MENU MOBILE
+// =========================
 
-if (menuButton) {
+if (menuButton && navLinks) {
 
     menuButton.addEventListener("click", () => {
+
         navLinks.classList.toggle("open");
+
     });
 
 }
 
 
-// Ferme le menu après avoir cliqué sur un lien
+// Fermer le menu après avoir cliqué
 
 document.querySelectorAll(".nav-links a").forEach(link => {
 
     link.addEventListener("click", () => {
+
         navLinks.classList.remove("open");
+
     });
 
 });
 
 
-// ============================
-// APPARITION DES ELEMENTS
-// ============================
+// =========================
+// ANIMATIONS
+// =========================
 
 const revealElements = document.querySelectorAll(
-    ".section, .universe-card, .process-card, .social-card, .review-empty"
+    ".section, .universe-card, .business-card, .business-note, .process-card, .social-card, .review-empty"
 );
 
 
 const observer = new IntersectionObserver(
+
     (entries) => {
 
         entries.forEach(entry => {
@@ -51,9 +56,11 @@ const observer = new IntersectionObserver(
         });
 
     },
+
     {
         threshold: 0.08
     }
+
 );
 
 
@@ -66,12 +73,23 @@ revealElements.forEach(element => {
 });
 
 
-// ============================
-// ANNEE AUTOMATIQUE
-// ============================
+// =========================
+// EMAIL
+// =========================
 
-const yearElements = document.querySelectorAll("[data-year]");
+const emailLinks = document.querySelectorAll(
+    'a[href^="mailto:"]'
+);
 
-yearElements.forEach(element => {
-    element.textContent = new Date().getFullYear();
+
+emailLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        console.log(
+            "Contact CelianLab via celiandbs.contact@gmail.com"
+        );
+
+    });
+
 });
