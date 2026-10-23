@@ -1,172 +1,106 @@
+```javascript
 /*
-==========================================================
+==================================================
 CELIANLAB — CONFIGURATION
-==========================================================
-
-IMPORTANT :
-
-C'est principalement ICI que tu modifieras tes liens.
-
-Tu n'as normalement pas besoin de chercher
-les liens dans tout le site.
-==========================================================
+Modifie uniquement les liens ci-dessous.
+==================================================
 */
-
 
 const CELIANLAB = {
 
-    twitch:
-        "https://www.twitch.tv/celian026",
+    twitch: "https://www.twitch.tv/CelianLab",
 
-    youtube:
-        "https://www.youtube.com/@CelianLab",
+    youtube: "https://www.youtube.com/@CelianLab",
 
-    tiktok:
-        "https://www.tiktok.com/@celianlab",
+    tiktok: "https://www.tiktok.com/@CelianLab",
 
-    instagram:
-        "https://www.instagram.com/celianlab/",
+    instagram: "https://www.instagram.com/CelianLab",
 
-    vinted:
-        "https://www.vinted.fr/member/310452502",
-
-    cults3d:
-        "https://cults3d.com/en/users/CelianLab/3d-models",
-
-    contact:
-        "mailto:contact@celianlab.fr"
+    contact: "mailto:contact@celianlab.fr"
 
 };
 
 
-
 /*
-==========================================================
-APPLICATION DES LIENS
-==========================================================
+==================================================
+NE PAS MODIFIER EN DESSOUS
+==================================================
 */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-        const links = {
+    const platforms = [
+        "twitch",
+        "youtube",
+        "tiktok",
+        "instagram"
+    ];
 
-            twitch:
-                document.querySelectorAll(".twitch"),
+    platforms.forEach(platform => {
 
-            youtube:
-                document.querySelectorAll(".youtube"),
-
-            tiktok:
-                document.querySelectorAll(".tiktok"),
-
-            instagram:
-                document.querySelectorAll(".instagram"),
-
-            vinted:
-                document.querySelectorAll(".vinted"),
-
-            cults3d:
-                document.querySelectorAll(".cults"),
-
-        };
-
-
-        Object.keys(links).forEach(
-            platform => {
-
-                links[platform].forEach(
-                    link => {
-
-                        link.href =
-                            CELIANLAB[platform];
-
-                        if (
-                            CELIANLAB[platform] !== "#"
-                        ) {
-
-                            link.target =
-                                "_blank";
-
-                            link.rel =
-                                "noopener noreferrer";
-
-                        }
-
-                    }
-                );
-
-            }
+        const elements = document.querySelectorAll(
+            "." + platform
         );
 
+        elements.forEach(element => {
 
-        /*
-        ===============================
-        BOUTON CONTACT
-        ===============================
-        */
+            element.href = CELIANLAB[platform];
 
-        document
-            .querySelectorAll(
-                'a[href^="mailto:"]'
-            )
-            .forEach(
-                link => {
+            element.target = "_blank";
 
-                    link.href =
-                        CELIANLAB.contact;
+            element.rel = "noopener noreferrer";
+
+        });
+
+    });
+
+
+    /*
+    Contact
+    */
+
+    document.querySelectorAll(
+        'a[href^="mailto:"]'
+    ).forEach(element => {
+
+        element.href = CELIANLAB.contact;
+
+    });
+
+
+    /*
+    Apparition progressive des éléments
+    */
+
+    const observer = new IntersectionObserver(
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
 
                 }
-            );
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
 
-        /*
-        ===============================
-        APPARITION DES CARTES
-        ===============================
-        */
+    document
+        .querySelectorAll(
+            ".portfolio-card, .process-card, .network, .testimonial-empty"
+        )
+        .forEach(element => {
 
-        const elements =
-            document.querySelectorAll(
-                ".universe-card, .project-small-grid article, .network-card"
-            );
+            observer.observe(element);
 
+        });
 
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: .15
-                }
-            );
-
-
-        elements.forEach(
-            element => {
-
-                observer.observe(element);
-
-            }
-        );
-
-    }
-);
+});
+```
